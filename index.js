@@ -3,23 +3,26 @@ const cloud2 = document.getElementById("cloud2");
 const cloud3 = document.getElementById("cloud3");
 const intro = document.getElementById("intro");
 
-let cloud1Top = parseInt(window.getComputedStyle(cloud1).getPropertyValue("top"));
-let cloud2Top = parseInt(window.getComputedStyle(cloud2).getPropertyValue("right"));
-let cloud3Top = parseInt(window.getComputedStyle(cloud3).getPropertyValue("left"));
-let introTop = parseInt(window.getComputedStyle(intro).getPropertyValue("top"));
+function getComputedStyleValue(element, property) {
+    return parseInt(window.getComputedStyle(element).getPropertyValue(property));
+}
+
+function updateElementPosition() {
+    temp = windows.scrollY;
+}
+let cloud1Top = getComputedStyleValue(cloud1, "top");
+let cloud2Top = getComputedStyleValue(cloud2, "right");
+let cloud3Top = getComputedStyleValue(cloud3, "left");
+let introTop = getComputedStyleValue(intro, "top");
 
 window.addEventListener("scroll", () => {
     let temp = window.scrollY;
-    let newTemp = 0;
-    console.log(temp * -0.5 + cloud1Top);
+    cloud1.style.top = (temp * -1 + cloud1Top) + "px";
+    cloud2.style.right = (temp * -1 + cloud2Top) + "px";
+    cloud3.style.left = (temp * -1 + cloud3Top) + "px";
+    intro.style.top = (temp * 0.8 + introTop) + "px";
 
-    if (temp > newTemp) {
-        cloud1.style.top = (temp * -1 + cloud1Top) + "px";
-        cloud2.style.right = (temp * -1 + cloud2Top) + "px";
-        cloud3.style.left = (temp * -1 + cloud3Top) + "px";
-        intro.style.top = (temp * 0.8 + introTop) + "px";
-        newTemp = temp;
-    }
+    // console.log("cloud1" + cloud1.style.top + "\n temp " + (temp * -1 + cloud1Temp));
 });
 
 
@@ -30,13 +33,8 @@ document.querySelector("form").addEventListener("submit", e => {
     window.open("mailto:" + email + "?body=" + content);
 });
 
-let menuFlag = true;
+let menuFlag = false;
 document.querySelector(".nav-menu ").addEventListener("click", (e) => {
-    if (menuFlag) {
-        document.getElementById("menu").style.display = "flex";
-        menuFlag = false;
-    } else {
-        document.getElementById("menu").style.display = "none";
-        menuFlag = true;
-    }
+    document.getElementById("menu").style.display = menuFlag ? "none" : "flex";
+    menuFlag = !menuFlag
 })
