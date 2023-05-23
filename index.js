@@ -42,7 +42,7 @@ window.addEventListener("scroll", () => {
     console.log(contactTop);
     if (temp < (aboutTop*2/3)) {
         setActive(navbar, home);
-    } else if (temp < aboutTop+(contactTop-aboutTop)*1/2) {
+    } else if (temp < aboutTop+(contactTop-aboutTop)*2/3) {
         setActive(navbar, about);
     } else {
         setActive(navbar, contact);
