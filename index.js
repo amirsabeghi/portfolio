@@ -36,13 +36,9 @@ window.addEventListener("scroll", () => {
     intro.style.top = (temp * 0.8 + introTop) + "px";
 
 
-    console.log(temp);
-    console.log(aboutTop+(contactTop-aboutTop)*1/2);
-    console.log(aboutTop);
-    console.log(contactTop);
-    if (temp < (aboutTop*2/3)) {
+    if (temp < (aboutTop * 2 / 3)) {
         setActive(navbar, home);
-    } else if (temp < aboutTop+(contactTop-aboutTop)*2/3) {
+    } else if (temp < aboutTop + (contactTop - aboutTop) * 2 / 3) {
         setActive(navbar, about);
     } else {
         setActive(navbar, contact);
@@ -59,10 +55,39 @@ document.querySelector("form").addEventListener("submit", e => {
     window.open("mailto:" + email + "?body=" + content);
 });
 
+// navbar toggle
 let menuFlag = false;
+let id = null;
+let height = 0;
 document.querySelector(".nav-menu ").addEventListener("click", (e) => {
-    document.getElementById("menu").style.display = menuFlag ? "none" : "flex";
-    menuFlag = !menuFlag
+    // document.getElementById("menu").style.display = menuFlag ? "none" : "flex";
+
+    if (height == 0) {
+        clearInterval(id);
+        id = setInterval(frame, 1);
+        function frame() {
+            if (height == 200) {
+                clearInterval(id);
+            } else {
+                height += 10;
+                document.getElementById("menu").style.height = height + "px";
+            }
+        }
+    } else if (height == 200) {
+        clearInterval(id);
+        id = setInterval(frame, 1);
+        function frame() {
+            if (height == 0) {
+                clearInterval(id);
+            } else {
+                height -= 10;
+                document.getElementById("menu").style.height = height + "px";
+            }
+        }
+    }
+
+    // document.getElementById("menu").style.height = menuFlag ? "0" : "fit-content";
+    // menuFlag = !menuFlag
 })
 
 // const navigationBar = document.querySelector(".navbar");

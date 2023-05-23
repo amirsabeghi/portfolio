@@ -39,12 +39,14 @@
 }
 .menu {
   width: 100%;
+  height: 0px;
+  overflow: hidden;
   background-color: #146c94;
-  display: none;
+  display: flex;
   flex-direction: column;
   text-align: center;
   position: absolute;
-  z-index: 2;
+  z-index: 3;
 }
 .menu a {
   color: #fff;
@@ -52,6 +54,9 @@
   text-decoration: none;
 }
 .nav-menu {
+  position: absolute;
+  top: 5px;
+  right: 10px;
   padding-top: 10px;
   display: flex;
   flex-direction: column;
@@ -243,16 +248,21 @@ button:hover {
 
 @media screen and (max-width: 800px) {
   .navigation {
-    padding: 10px 5%;
+    padding: 0;
   }
-  .menu {
+  /* .menu {
     display: none;
-  }
+  } */
   .navbar {
     display: none;
   }
+  .logo {
+    font-size: 1.5rem;
+    padding: 10px 10px;
+  }
   .nav-menu {
     display: block;
+    
   }
   #header {
     height: 50%;
