@@ -28,6 +28,8 @@ function setActive(navbarList, activeItem) {
     });
     activeItem.classList.add("active");
 }
+
+// Scroll Event
 window.addEventListener("scroll", () => {
     let temp = window.scrollY;
     cloud1.style.top = (temp * -1 + cloud1Top) + "px";
@@ -38,16 +40,14 @@ window.addEventListener("scroll", () => {
 
     if (temp < (aboutTop * 2 / 3)) {
         setActive(navbar, home);
-    } else if (temp < aboutTop + (contactTop - aboutTop) * 2 / 3) {
+    } else if (temp < aboutTop + (contactTop - aboutTop) * 3 / 4) {
         setActive(navbar, about);
     } else {
         setActive(navbar, contact);
-        console.log("contact");
     }
-    // console.log("cloud1" + cloud1.style.top + "\n temp " + (temp * -1 + cloud1Temp));
 });
 
-
+// Form email redirect
 document.querySelector("form").addEventListener("submit", e => {
     e.preventDefault();
     const email = document.getElementById("email").value;
@@ -56,12 +56,9 @@ document.querySelector("form").addEventListener("submit", e => {
 });
 
 // navbar toggle
-let menuFlag = false;
 let id = null;
 let height = 0;
 document.querySelector(".nav-menu ").addEventListener("click", (e) => {
-    // document.getElementById("menu").style.display = menuFlag ? "none" : "flex";
-
     if (height == 0) {
         clearInterval(id);
         id = setInterval(frame, 1);
@@ -85,17 +82,4 @@ document.querySelector(".nav-menu ").addEventListener("click", (e) => {
             }
         }
     }
-
-    // document.getElementById("menu").style.height = menuFlag ? "0" : "fit-content";
-    // menuFlag = !menuFlag
 })
-
-// const navigationBar = document.querySelector(".navbar");
-// navigationBar.addEventListener("click", (event) => {
-//     if (event.target.matches(".navbar a")) {
-//         navigationBar.querySelectorAll("a").forEach(item => {
-//             item.classList.remove("active");
-//         })
-//         event.target.classList.add("active");
-//     }
-// });

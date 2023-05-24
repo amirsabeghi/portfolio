@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 #header {
@@ -25,7 +25,7 @@
   background-color: rgba(2, 156, 199, 0.8);
 }
 .logo {
-  font-family: 'Raleway', sans-serif;
+  font-family: "Raleway", sans-serif;
   color: #fff;
   font-size: 2rem;
   font-weight: 700;
@@ -83,10 +83,12 @@
   text-align: center;
   color: #fff;
 }
-.navbar a:hover {
-  background-color: #fff;
-  color: #222;
-  /* font-size: 1.2rem; */
+@media (hover: hover) {
+  .navbar a:hover {
+    background-color: #fff;
+    color: #222;
+    /* font-size: 1.2rem; */
+  }
 }
 .navbar .active {
   /* color: #c7c5c5; */
@@ -210,7 +212,7 @@ button {
   border-radius: 8px;
   padding: 10px 30px;
   border: none;
-  box-shadow: 2px 2px 5px black;
+  /* box-shadow: 2px 2px 5px black; */
   transition: 0.2s;
 }
 button:hover {
@@ -222,7 +224,7 @@ button:hover {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 2% 15%;
+  padding: 1% 15%;
   background-color: #0b2447;
   color: #fff;
 }
@@ -232,9 +234,11 @@ button:hover {
   height: 40px;
   align-items: center;
 }
-.social a:hover {
-  font-size: 1.5rem;
-  transition: 0.2s;
+@media (hover: hover) {
+  .social a:hover {
+    font-size: 1.5rem;
+    transition: 0.2s;
+  }
 }
 #footer a {
   margin: 0 12px;
@@ -242,12 +246,18 @@ button:hover {
 }
 
 #footer p {
-  position: inherit;
-  bottom: 10px;
   color: #ffffffb0;
+  font-size: 0.8rem;
 }
-
-@media screen and (max-width: 800px) {
+.copy-right {
+  text-align: center;
+  padding: 5px 0;
+  background-color: #001c41;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+}
+@media screen and (max-width: 720px) {
   .navigation {
     padding: 0;
   }
@@ -263,7 +273,6 @@ button:hover {
   }
   .nav-menu {
     display: block;
-    
   }
   #header {
     height: 50%;
@@ -292,7 +301,7 @@ button:hover {
     top: 70%;
   }
 }
-@media screen and (min-width: 1400px) {
+@media screen and (min-width: 750px) {
   #header {
     height: 120%;
   }
@@ -303,7 +312,7 @@ button:hover {
     left: 0px;
   }
 }
-@media screen and (max-width: 900px) {
+@media screen and (max-width: 750px) {
   .item {
     flex-direction: column-reverse;
     align-items: center;
