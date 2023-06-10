@@ -1,7 +1,7 @@
-const cloud1 = document.getElementById("cloud1");
-const cloud2 = document.getElementById("cloud2");
-const cloud3 = document.getElementById("cloud3");
-const intro = document.getElementById("intro");
+// const cloud1 = document.getElementById("cloud1");
+// const cloud2 = document.getElementById("cloud2");
+// const cloud3 = document.getElementById("cloud3");
+// const intro = document.getElementById("intro");
 
 // Navbar links
 const navbar = document.querySelectorAll(".navbar a");
@@ -17,10 +17,10 @@ function getComputedStyleValue(element, property) {
 }
 
 
-let cloud1Top = getComputedStyleValue(cloud1, "top");
-let cloud2Top = getComputedStyleValue(cloud2, "right");
-let cloud3Top = getComputedStyleValue(cloud3, "left");
-let introTop = getComputedStyleValue(intro, "top");
+// let cloud1Top = getComputedStyleValue(cloud1, "top");
+// let cloud2Top = getComputedStyleValue(cloud2, "right");
+// let cloud3Top = getComputedStyleValue(cloud3, "left");
+// let introTop = getComputedStyleValue(intro, "top");
 
 function setActive(navbarList, activeItem) {
     navbarList.forEach(item => {
@@ -32,10 +32,10 @@ function setActive(navbarList, activeItem) {
 // Scroll Event
 window.addEventListener("scroll", () => {
     let temp = window.scrollY;
-    cloud1.style.top = (temp * -1 + cloud1Top) + "px";
-    cloud2.style.right = (temp * -1 + cloud2Top) + "px";
-    cloud3.style.left = (temp * -1 + cloud3Top) + "px";
-    intro.style.top = (temp * 0.8 + introTop) + "px";
+    // cloud1.style.top = (temp * -1 + cloud1Top) + "px";
+    // cloud2.style.right = (temp * -1 + cloud2Top) + "px";
+    // cloud3.style.left = (temp * -1 + cloud3Top) + "px";
+    // intro.style.top = (temp * 0.8 + introTop) + "px";
 
 
     if (temp < (aboutTop * 2 / 3)) {
@@ -83,3 +83,23 @@ document.querySelector(".nav-menu ").addEventListener("click", (e) => {
         }
     }
 })
+
+const dateElement = document.querySelector(".date")
+const time = document.querySelector(".time")
+
+function updateTime () {
+    const date = new Date()
+    let dayTime = ""
+    if (date.getHours() > 19 || date.getHours() < 4 ) {
+        dayTime = "Night";
+    } else if (date.getHours() > 16) {
+        dayTime = "Evening";
+    } else if (date.getHours() > 11) {
+        dayTime = "Afternoon";
+    } else {
+        dayTime = "Morning"
+    }
+    dateElement.innerHTML = "Good " + dayTime + ", today is: " + date.toDateString();
+    time.innerHTML = date.getHours() + ":" + date.getMinutes();
+}
+setInterval(updateTime, 1000);

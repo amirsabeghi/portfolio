@@ -6,22 +6,33 @@
 }
 
 #header {
-  position: relative;
   background-color: #19a7ce;
   height: 100%;
   overflow: hidden;
+  padding: 0% 15% 7%;
   position: relative;
   display: flex;
-  justify-content: center;
+}
+.header-image{
+  margin-top: 20%;
+  position: relative;
+  margin-left: auto;
+  right: -50px;
+  min-width: 400px;
+  height: 400px;
+  overflow: hidden;
+  border-radius: 100%;
+}
+.header-image img {
+  width: 100%;
 }
 .navigation {
   position: fixed;
   width: 100%;
-  padding: 10px 17%;
+  padding: 10px 15%;
   display: flex;
   justify-content: space-between;
   z-index: 2;
-  height: fit-content;
   background-color: rgba(2, 156, 199, 0.8);
 }
 .logo {
@@ -34,7 +45,7 @@
 .navbar {
   display: flex;
   align-items: center;
-  width: 40%;
+  width: fit-content;
   justify-content: right;
 }
 .menu {
@@ -72,12 +83,10 @@
   background-color: #fff;
 }
 .navbar a {
-  /* background-color: #0094d8; */
   border-radius: 8px;
   padding: 5px 0;
   margin-left: 20px;
   min-width: 90px;
-  /* box-shadow: 2px 2px 5px black; */
   transition: 0.2s;
   text-decoration: none;
   text-align: center;
@@ -85,8 +94,7 @@
 }
 @media (hover: hover) {
   .navbar a:hover {
-    background-color: #fff;
-    color: #222;
+    background-color: #146c94;
     /* font-size: 1.2rem; */
   }
 }
@@ -95,48 +103,19 @@
   box-shadow: 2px 2px 5px white;
 }
 .intro {
-  padding-top: 100px;
-  position: absolute;
-  top: 20px;
+  margin-top: 25%;
+  top: 20%;
   color: #fff;
-  text-align: center;
+  text-align: left;
 }
 .intro h1 {
   font-family: "Raleway", sans-serif;
   font-weight: 700;
-  font-size: 4rem;
+  font-size: 3.5rem;
 }
 .intro h3 {
   font-family: "Raleway", sans-serif;
   font-size: 2rem;
-}
-#cloud1 {
-  position: absolute;
-  top: 20;
-  max-width: 80%;
-  z-index: 1;
-}
-
-#cloud2 {
-  position: absolute;
-  max-width: 400px;
-  top: 150px;
-  right: -100px;
-  z-index: 1;
-}
-
-#cloud3 {
-  position: absolute;
-  max-width: 500px;
-  top: 200px;
-  left: -100px;
-  z-index: 1;
-}
-#cloud4 {
-  position: absolute;
-  width: 100%;
-  bottom: -130px;
-  z-index: 1;
 }
 #about {
   padding: 9% 15%;
@@ -169,18 +148,18 @@
   object-fit: cover;
   object-position: 50%;
 }
-#about h1 {
+#about h2 {
   font-size: 2rem;
   margin-bottom: 20px;
   text-transform: capitalize;
 }
 #about p {
-  text-align: justify;
+  text-align: left;
 }
 
 #cta {
   background-color: #0a4d68;
-  padding: 5% 17%;
+  padding: 5% 15%;
   color: #fff;
 }
 
@@ -189,7 +168,7 @@
 }
 #email {
   padding: 10px;
-  margin-top: 10px;
+  margin-top: 5px;
   border-radius: 10px;
   width: 100%;
   max-width: 400px;
@@ -224,7 +203,7 @@ button:hover {
   flex-direction: column;
   align-items: center;
   width: 100%;
-  padding: 1% 15%;
+  padding: 0 15% 2%;
   background-color: #0b2447;
   color: #fff;
 }
@@ -258,12 +237,12 @@ button:hover {
   bottom: 0;
 }
 @media screen and (max-width: 720px) {
+}
+@media screen and (max-width: 750px) {
+
   .navigation {
     padding: 0;
   }
-  /* .menu {
-    display: none;
-  } */
   .navbar {
     display: none;
   }
@@ -276,9 +255,13 @@ button:hover {
   }
   #header {
     height: 50%;
+    align-items: center;
+    padding-left: 5%;
+    padding-right: 5%;
   }
   .intro {
-    top: 0;
+    text-align: center;
+    width: 100%;
   }
   .intro h1 {
     font-size: 2rem;
@@ -286,33 +269,9 @@ button:hover {
   .intro h3 {
     font-size: 1rem;
   }
-  #cloud1 {
-    max-width: 100%;
+  .header-image {
+    display: none;
   }
-  #cloud2 {
-    top: 10%;
-    right: -250px;
-  }
-  #cloud3 {
-    top: 10%;
-    left: -280px;
-  }
-  #cloud4 {
-    top: 70%;
-  }
-}
-@media screen and (min-width: 750px) {
-  #header {
-    height: 120%;
-  }
-  #cloud2 {
-    right: 0px;
-  }
-  #cloud3 {
-    left: 0px;
-  }
-}
-@media screen and (max-width: 750px) {
   .item {
     flex-direction: column-reverse;
     align-items: center;
@@ -326,7 +285,7 @@ button:hover {
     min-height: fit-content;
   }
   #about {
-    padding: 5% 2%;
+    padding: 5% 0%;
   }
   #about h1 {
     font-size: 1.5rem;
